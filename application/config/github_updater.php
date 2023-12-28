@@ -25,6 +25,8 @@ $config['github_branch'] = 'main';
 */
 $config['current_commit'] = 'd6bfc878bdfe66a835e28fe34ebc742521fa2ebf';
 
+$config['github_token'] = 'SEU_TOKEN';
+
 /**
 * A list of files or folders to never perform an update on.
 * Not specifying a relative path from the webroot will apply
