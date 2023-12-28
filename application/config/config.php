@@ -9,7 +9,7 @@ $config['app_version'] = '4.42.0';
 /**
  * Nome do sistema
  */
-$config['app_name'] = 'Map-OS';
+$config['app_name'] = 'AutoCRM';
 
 /**
  * Descrição do sistema
