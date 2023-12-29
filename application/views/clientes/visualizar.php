@@ -172,7 +172,7 @@
                 </table>
                 <?php
             } else { ?>
-                <table class="table table-bordered ">
+                <table id="tabela" class="table table-bordered ">
                     <thead>
                     <tr>
                         <th>N° OS</th>
@@ -206,8 +206,6 @@
                         echo  '</td>';
                         echo '</tr>';
                     } ?>
-                    <tr>
-                    </tr>
                     </tbody>
                 </table>
                 <?php
