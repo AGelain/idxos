@@ -155,6 +155,15 @@ $totalProdutos = 0; ?>
                                                         <?php echo $result->status ?>
                                                     </td>
                                                     <td>
+                                                        <b>Veículo: </b>
+                                                        <?php echo $result->placa ?>
+                                                    </td>
+
+                                                    <td>
+                                                        <b>KM: </b>
+                                                        <?php echo $result->km ?>
+                                                    </td>
+                                                    <td>
                                                         <b>DATA INICIAL: </b>
                                                         <?php echo date('d/m/Y', strtotime($result->dataInicial)); ?>
                                                     </td>
@@ -386,6 +395,15 @@ $totalProdutos = 0; ?>
                                                     <td>
                                                         <b>STATUS OS: </b>
                                                         <?php echo $result->status ?>
+                                                    </td>
+                                                    <td>
+                                                        <b>Veículo: </b>
+                                                        <?php echo $result->placa ?>
+                                                    </td>
+
+                                                    <td>
+                                                        <b>KM: </b>
+                                                        <?php echo $result->km ?>
                                                     </td>
                                                     <td>
                                                         <b>DATA INICIAL: </b>

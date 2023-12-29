@@ -144,6 +144,16 @@ $totalProdutos = 0; ?>
                     <div style="margin-top: 0; padding-top: 0; font-size: 12px;">
                         <table class="table table-condensed">
                             <tbody>
+                                <tr>
+                                    <td>
+                                        <b>Veículo: </b>
+                                        <?php echo $result->placa ?>
+                                    </td>
+                                    <td>
+                                        <b>Km: </b>
+                                        <?php echo $result->km ?>
+                                    </td>
+                                </tr>
                                 <?php if ($result->dataInicial != null) { ?>
                                     <tr>
                                         <td><b>Inicial: </b><?php echo date('d/m/Y', strtotime($result->dataInicial)); ?></td>
@@ -344,6 +354,16 @@ $totalProdutos = 0; ?>
                         <div style="margin-top: 0; padding-top: 0">
                                 <table class="table table-condensed">
                                     <tbody>
+                                        <tr>
+                                            <td>
+                                                <b>Veículo: </b>
+                                                <?php echo $result->placa ?>
+                                            </td>
+                                            <td>
+                                                <b>Km: </b>
+                                                <?php echo $result->km ?>
+                                            </td>
+                                        </tr>
                                         <?php if ($result->dataInicial != null) { ?>
                                             <tr>
                                                 <td>
