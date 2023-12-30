@@ -61,10 +61,12 @@
                         <tr>
                             <th>N°</th>
                             <th>Cliente</th>
+                            <th>Veículo</th>
                             <th class="ph1">Responsável</th>
                             <th>Data Inicial</th>
                             <th class="ph2">Data Final</th>
                             <th class="ph3">Venc. Garantia</th>
+                            <th>Km</th>
                             <th>Valor Total</th>
                             <th>Valor com Desconto</th>
                             <th class="ph4">V.T (Faturado)</th>
@@ -149,10 +151,12 @@
                                 echo '<tr>';
                                 echo '<td>' . $r->idOs . '</td>';
                                 echo '<td class="cli1"><a href="' . base_url() . 'index.php/clientes/visualizar/' . $r->idClientes . '" style="margin-right: 1%">' . $r->nomeCliente . '</a></td>';
+                                echo '<td>' . $r->placa . '</td>';
                                 echo '<td class="ph1">' . $r->nome . '</td>';
                                 echo '<td>' . $dataInicial . '</td>';
                                 echo '<td class="ph2">' . $dataFinal . '</td>';
                                 echo '<td class="ph3"><span class="badge" style="background-color: ' . $corGarantia . '; border-color: ' . $corGarantia . '">' . $vencGarantia . '</span> </td>';
+                                echo '<td>' . $r->km . '</td>';
                                 echo '<td>R$ ' . number_format($r->totalProdutos + $r->totalServicos, 2, ',', '.') . '</td>';
                                 echo '<td>R$ ' . number_format(floatval($r->valor_desconto), 2, ',', '.') . '</td>';
                                 echo '<td class="ph4">R$ ' . number_format($r->valor_desconto != 0 ? $r->valor_desconto : $r->valorTotal, 2, ',', '.') . '</td>';

@@ -71,6 +71,12 @@ class Veiculos extends MY_Controller
 
         $this->load->library('form_validation');
         $this->data['custom_error'] = '';
+
+        $this->form_validation->set_rules('placa', 'Placa', 'required');
+        $this->form_validation->set_rules('marca', 'Marca', 'required');
+        $this->form_validation->set_rules('modelo', 'Modelo', 'required');
+        $this->form_validation->set_rules('cor', 'Cor', 'required');
+
         if ($this->form_validation->run('veiculos') == false) {
             $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
         } else {

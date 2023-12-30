@@ -1,5 +1,6 @@
+
 <div class="row-fluid">
-    <div id="footer" class="span12">
+    <div id="footer" class="span12" style="padding: 10px">
         <a class="pecolor" href="https://autocrm.com.br" target="_blank">
             <?= date('Y') ?> &copy; <?php echo $this->config->item('app_name') ?> - Versão: <?= $this->config->item('app_version'); ?>
         </a>

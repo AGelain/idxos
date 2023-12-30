@@ -127,10 +127,12 @@ class Clientes_model extends CI_Model
 
     public function getOsByCliente($id)
     {
-        $this->db->where('clientes_id', $id);
+        $this->db->select('os.*, veiculos.placa');
+        $this->db->from('os');
+        $this->db->join('veiculos', 'veiculos.idVeiculos = os.veiculo_id');
+        $this->db->where('os.clientes_id', $id);
         $this->db->order_by('idOs', 'desc');
-        $this->db->limit(10);
-        return $this->db->get('os')->result();
+        return $this->db->get()->result();
     }
 
     /**

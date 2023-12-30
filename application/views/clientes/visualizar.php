@@ -172,12 +172,13 @@
                 </table>
                 <?php
             } else { ?>
-                <table class="table table-bordered ">
+                <table id="tabela" class="table table-bordered ">
                     <thead>
                     <tr>
                         <th>N° OS</th>
                         <th>Data Inicial</th>
                         <th>Data Final</th>
+                        <th>Placa</th>
                         <th>Descricao</th>
                         <th>Defeito</th>
                         <th></th>
@@ -192,6 +193,7 @@
                         echo '<td>' . $r->idOs . '</td>';
                         echo '<td>' . $dataInicial . '</td>';
                         echo '<td>' . $dataFinal . '</td>';
+                        echo '<td>' . $r->placa . '</td>';
                         echo '<td>' . $r->descricaoProduto . '</td>';
                         echo '<td>' . $r->defeito . '</td>';
 
@@ -206,8 +208,6 @@
                         echo  '</td>';
                         echo '</tr>';
                     } ?>
-                    <tr>
-                    </tr>
                     </tbody>
                 </table>
                 <?php
