@@ -25,7 +25,7 @@ $config['github_branch'] = 'main';
 */
 $config['current_commit'] = 'd6bfc878bdfe66a835e28fe34ebc742521fa2ebf';
 
-$config['github_token'] = 'SEU_TOKEN';
+$config['github_token'] = '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';
 
 /**
 * A list of files or folders to never perform an update on.

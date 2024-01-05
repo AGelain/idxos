@@ -2,7 +2,7 @@
 <nav id="sidebar">
     <div id="newlog">
         <div class="icon2">
-            <?= $configuration['app_theme'] == 'white' ||  $configuration['app_theme'] == 'whitegreen' ? '<img src="' . base_url() . 'assets/img/logo-one.png">' : '<img src="' . base_url() . 'assets/img/logo-two.png">'; ?>
+            <?= $configuration['app_theme'] == 'white' ||  $configuration['app_theme'] == 'whitegreen' ? '<img src="' . base_url() . 'assets/img/logo-two.png">' : '<img src="' . base_url() . 'assets/img/logo-one.png">'; ?>
         </div>
         <div class="title1">
             <?= $configuration['app_theme'] == 'white' ||  $configuration['app_theme'] == 'whitegreen' ? '<img src="' . base_url() . 'assets/img/logo-preto.png">' : '<img src="' . base_url() . 'assets/img/logo-branco.png">'; ?>
