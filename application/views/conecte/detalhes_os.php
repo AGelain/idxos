@@ -11,6 +11,15 @@
         margin-top: 0;
         margin-bottom: 0;
     }
+
+    #assCliente-pad {
+        border: 1px solid #333333;
+        border-radius: 6px;
+    }
+
+    .buttons-a {
+        margin-top: 10px;
+    }
 </style>
 
 <div class="row-fluid" style="margin-top:0">
@@ -23,24 +32,21 @@
                 <h5>Detalhes OS</h5>
             </div>
             <div class="widget-content nopadding tab-content">
-
-
                 <div class="span12" id="divProdutosServicos" style=" margin-left: 0">
                     <ul class="nav nav-tabs">
                         <li class="active" id="tabDetalhes"><a href="#tab1" data-toggle="tab">Detalhes da OS</a></li>
                         <li id="tabProdutos"><a href="#tab2" data-toggle="tab">Produtos</a></li>
                         <li id="tabServicos"><a href="#tab3" data-toggle="tab">Serviços</a></li>
                         <li id="tabAnexos"><a href="#tab4" data-toggle="tab">Anexos</a></li>
+                      <?php if($this->data['usar_assinatura']): ?>
+                        <li <?=$tab == 5 ? 'class="active" ' : ''?>id="tabAssinar"><a href="#tab5" data-toggle="tab">Assinatura</a></li>
+                      <?php endif; ?>
+                    </ul>
                     </ul>
                     <div class="tab-content">
-                        <div class="tab-pane active" id="tab1">
-
+                        <div class="tab-pane<?=$tab != 5 ? ' active' : ''?>" id="tab1">
                             <div class="span12" id="divCadastrarOs">
-
-
                                 <div class="span12" style="padding: 1%; margin-left: 0">
-
-
                                     <div class="span6" style="margin-left: 0">
                                         <h3>#Protocolo:
                                             <?php echo $result->idOs ?>
@@ -50,14 +56,12 @@
                                     <div class="span6">
                                         <label for="tecnico">Técnico / Responsável</label>
                                         <input disabled="disabled" id="tecnico" class="span12" type="text" name="tecnico" value="<?php echo $result->nome ?>" />
-
                                     </div>
                                 </div>
                                 <div class="span12" style="padding: 1%; margin-left: 0">
                                     <div class="span3">
                                         <label for="status">Status<span class="required"></span></label>
                                         <input disabled="disabled" type="text" name="status" id="status" value="<?php echo $result->status; ?>">
-
                                     </div>
                                     <div class="span3">
                                         <label for="dataInicial">Data Inicial<span class="required">*</span></label>
@@ -67,42 +71,32 @@
                                         <label for="dataFinal">Data Final</label>
                                         <input id="dataFinal" disabled="disabled" class="span12 datepicker" type="text" name="dataFinal" value="<?php echo date('d/m/Y', strtotime($result->dataFinal)); ?>" />
                                     </div>
-
                                     <div class="span3">
                                         <label for="garantia">Garantia</label>
                                         <input id="garantia" disabled="disabled" type="text" class="span12" name="garantia" value="<?php echo $result->garantia ?>" />
                                     </div>
                                 </div>
-
-
                                 <div class="span12" style="padding: 1%; margin-left: 0">
                                     <label for="descricaoProduto">Descrição Produto/Serviço</label>
                                     <textarea class="span12 editor" name="descricaoProduto" id="descricaoProduto" cols="30" rows="5" disabled><?php echo $result->descricaoProduto; ?></textarea>
                                 </div>
-
                                 <div class="span12" style="padding: 1%; margin-left: 0">
                                     <label for="defeito">Defeito</label>
                                     <textarea class="span12 editor" name="defeito" id="defeito" cols="30" rows="5" disabled><?php echo $result->defeito; ?></textarea>
                                 </div>
-
                                 <div class="span12" style="padding: 1%; margin-left: 0">
                                     <label for="observacoes">Observações</label>
                                     <textarea class="span12 editor" name="observacoes" id="observacoes" cols="30" rows="5" disabled><?php echo $result->observacoes; ?></textarea>
                                 </div>
-
                                 <div class="span12" style="padding: 1%; margin-left: 0">
                                     <label for="laudoTecnico">Laudo Técnico</label>
                                     <textarea class="span12 editor" name="laudoTecnico" id="laudoTecnico" cols="30" rows="5" disabled><?php echo $result->laudoTecnico; ?></textarea>
                                 </div>
-
                             </div>
-
                         </div>
-
 
                         <!--Produtos-->
                         <div class="tab-pane" id="tab2">
-
                             <div class="span12" id="divProdutos" style="margin-left: 0">
                                 <table class="table table-bordered" id="tblProdutos">
                                     <thead>
@@ -134,13 +128,11 @@ foreach ($produtos as $p) {
                                     </tbody>
                                 </table>
                             </div>
-
                         </div>
 
                         <!--Serviços-->
                         <div class="tab-pane" id="tab3">
                             <div class="span12" style="padding: 1%; margin-left: 0">
-
                                 <div class="span12" id="divServicos" style="margin-left: 0">
                                     <table class="table table-bordered">
                                         <thead>
@@ -172,20 +164,16 @@ foreach ($servicos as $s) {
                                         </tbody>
                                     </table>
                                 </div>
-
                             </div>
                         </div>
-
 
                         <!--Anexos-->
                         <div class="tab-pane" id="tab4">
                             <div class="span12" style="padding: 1%; margin-left: 0">
-
                                 <?php if ($this->session->userdata('cliente_anexa')) { ?>
                                     <div class="span12 well" style="padding: 1%; margin-left: 0" id="form-anexos">
                                         <form id="formAnexos" enctype="multipart/form-data" action="javascript:;" accept-charset="utf-8" s method="post">
                                             <div class="span10">
-
                                                 <input type="hidden" name="idOsServico" id="idOsServico" value="<?php echo $result->idOs ?>" />
                                                 <label for="">Anexo</label>
                                                 <input type="file" class="span12" name="userfile[]" multiple="multiple" size="20" />
@@ -198,7 +186,6 @@ foreach ($servicos as $s) {
                                     </div>
                                 <?php
                                 } ?>
-
                                 <div class="span12" id="divAnexos" style="margin-left: 0">
                                     <?php foreach ($anexos as $a) {
                                         if ($a->thumb == null) {
@@ -216,28 +203,47 @@ foreach ($servicos as $s) {
                                             </div>';
                                     }?>
                                 </div>
-
                             </div>
                         </div>
 
-
-
+                        <!--Assinaturas-->
+                        <?php if($this->data['usar_assinatura']): ?>
+                            <div class="tab-pane<?=$tab == 5 ? ' active' : ''?>" id="tab5">
+                                <div class="span12" style="padding: 1%; margin-left: 0">
+                                    <h3>Autorizar e assinar Ordem de Serviço</h3>
+                                    <p style="margin-left: 10px;">Ao assinar e enviar sua assinatura você estará autorizando a execução da ordem de serviço!</p>
+                                    <div class="span11">
+                                        <div class="span10" id="assinaturaCliente" style="text-align:center;">
+                                        <?php if(!$result->assClienteImg): ?>
+                                            <canvas id="assCliente-pad" width="600" height="300"></canvas>
+                                            <p style="margin-top: 10px;"><input type="text" name="nomeAssinatura" id="nomeAssinatura" placeholder="Nome e Sobrenome*" class="text-center"></p>
+                                            <h4>Assinatura do Cliente</h4>
+                                        <?php else: ?>
+                                            <img src="<?=$result->assClienteImg?>" width="600" alt="">
+                                            <h4>Assinatura do Cliente</h4>
+                                            <p>Em <?=date('d/m/Y H:i:s', strtotime($result->assClienteData))?></p>
+                                            <p>IP: <?=$result->assClienteIp ?></p>
+                                        <?php endif; ?>
+                                        </div>
+                                    <?php if(!$result->assClienteImg): ?>
+                                        <div class="span10" style="text-align:center; margin-left:0;">
+                                            <div class="buttons-a">
+                                                <button id="limparAssCliente" type="button" class="btn btn-danger">Limpar Assinatura</button>
+                                                <button id="salvarAssCliente" type="button" class="btn btn-success">Enviar Assinatura</button>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                        <!-- Fim tab assinaturas -->
                     </div>
-
                 </div>
-
-
-                .
-
             </div>
-
         </div>
     </div>
 </div>
-
-
-
-
 
 <!-- Modal visualizar anexo -->
 <div id="modal-anexo" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -258,10 +264,6 @@ foreach ($servicos as $s) {
     </div>
 </div>
 
-
-
-
-
 <!-- Modal Faturar-->
 <div id="modal-faturar" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <form id="formFaturar" action="<?php echo current_url() ?>" method="post">
@@ -270,12 +272,10 @@ foreach ($servicos as $s) {
             <h3 id="myModalLabel">Faturar Venda</h3>
         </div>
         <div class="modal-body">
-
             <div class="span12 alert alert-info" style="margin-left: 0"> Obrigatório o preenchimento dos campos com asterisco.</div>
             <div class="span12" style="margin-left: 0">
                 <label for="descricao">Descrição*</label>
                 <input class="span12" id="descricao" type="text" name="descricao" value="Fatura de Venda - #<?php echo $result->idOs; ?> " />
-
             </div>
             <div class="span12" style="margin-left: 0">
                 <div class="span12" style="margin-left: 0">
@@ -284,8 +284,6 @@ foreach ($servicos as $s) {
                     <input type="hidden" name="clientes_id" id="clientes_id" value="<?php echo $result->clientes_id ?>">
                     <input type="hidden" name="os_id" id="os_id" value="<?php echo $result->idOs; ?>">
                 </div>
-
-
             </div>
             <div class="span12" style="margin-left: 0">
                 <div class="span4" style="margin-left: 0">
@@ -297,9 +295,7 @@ foreach ($servicos as $s) {
                     <label for="vencimento">Data Vencimento*</label>
                     <input class="span12 datepicker" id="vencimento" type="text" name="vencimento" />
                 </div>
-
             </div>
-
             <div class="span12" style="margin-left: 0">
                 <div class="span4" style="margin-left: 0">
                     <label for="recebido">Recebido?</label>
@@ -322,10 +318,7 @@ foreach ($servicos as $s) {
                             <option value="Pix">Pix</option>
                         </select>
                     </div>
-
                 </div>
-
-
             </div>
         </div>
         <div class="modal-footer">
@@ -334,6 +327,10 @@ foreach ($servicos as $s) {
         </div>
     </form>
 </div>
+
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/sweetalert2.all.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/signature_pad.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/js/assinaturas.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -349,4 +346,7 @@ foreach ($servicos as $s) {
         $("#div-visualizar-anexo").html('<img src="' + link + '" alt="">');
         $("#download").attr('href', "<?php echo base_url(); ?>index.php/mine/downloadanexo/" + id);
     });
+
+    window.base_url = <?php echo json_encode(base_url()); ?>;
+    window.idOs     = $("#os_id").val();
 </script>
